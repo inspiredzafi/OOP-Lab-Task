@@ -52,22 +52,24 @@ class Book{
         Book(string title, string desc)
         : Book(bookCount, title, desc, 50.00)
         {
-            id = bookCount;
-            bookCount++ ;
+            // id = bookCount;
+            // bookCount++ ;
         }
 
 
         // Copy Constructor - If not defined by the user, compiler automatically creates one.
         Book(Book& book)
-        : Book(book.id, book.title, book.desc, book.price)
+        : Book(bookCount, book.title, book.desc, book.price)
         {
 
         }
 
         
 
+
         ~Book(){
-            cout<< "Destructed the Book: " << title << endl ;
+            cout<< "Destructed the Book: " << title << " having the id " << id << endl ;            // Just to keep track k konsa destructor pehlay run hua, copied walay object ya original object ka.
+
             bookCount--;
         }
 
@@ -113,9 +115,11 @@ int main(){
     2. When does each destructor run ? 
 
         Each destructor executed when the main function did end, in the reverse order the objects were declared.. 
-        Objects were destroyed in this sequence. b5   ---Pending 
+        Objects were destroyed in this sequence. b5 
 
     3. Explain the object memory address and what they tell you?
+
+        Object memory address is the Physical memory address where the object is located in the memory...
 
 
 
