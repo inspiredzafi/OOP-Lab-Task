@@ -34,6 +34,7 @@ class Book{
         Book(int id, string title, string desc, float price) 
         : id(id), title(title), desc(desc), price(price)
         {
+            cout<< "Created a book with title: " << title << endl ;
             bookCount++ ;
             
         }
@@ -63,6 +64,8 @@ class Book{
 
         }
 
+        
+
         ~Book(){
             cout<< "Destructed the Book: " << title << endl ;
             bookCount--;
@@ -88,7 +91,32 @@ int main(){
 
     Book b4(b2);        // Calling copy constructor
 
+    Book b5 = b1;
+
+    cout<< "Address of b2 is: " << &b2 << " and the address of b4 is "<< &b4 << endl ;
+
+    cout<< "Adress of b1 is: " << &b1 << " and the address of b5 is: " << &b5 << endl;
 
 
     return 0;
 }
+
+
+
+// Questions
+
+/*
+    1. How many times the copy constructor execute?
+        It did execute two times, once for Book b4(b2) and Once for Book b5 = b1
+
+
+    2. When does each destructor run ? 
+
+        Each destructor executed when the main function did end, in the reverse order the objects were declared.. 
+        Objects were destroyed in this sequence. b5   ---Pending 
+
+    3. Explain the object memory address and what they tell you?
+
+
+
+*/
