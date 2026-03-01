@@ -74,21 +74,3 @@ int main()
 
 
 
-/* 
-     Questions:
-    1. Which function calls the copy constructor?
-
-        The copy constructor is called when the function "displayByValue" is called. 
-
-    2. Why does it happen?  
-        When an object is passed to some function by value it creates a copy of this object for its internal use so that nothing is changed in the original variable.
-
-    
-    3. Trace the full execution order from start to finish.
-        
-        1. S1 is created with name <Huzaifa> and Department <Computer Science>
-        2. Function displayByValue is called, which internally calls the copy constructor for its internal use in the function.
-        3. The name and the department of the object is printed, and then destructor is called for the newly created object in the displayByValue function. (Named default intionally to differenciate between two obejects.)
-        4. Function displayByRef is called, the object is passed by reference and hence no copy constructor is called for this call.
-        5. The Student s1 with the name "Huzaifa" is destruced. Its destructor is called.
-*/

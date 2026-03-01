@@ -51,21 +51,3 @@ int main(){
 
     return 0;
 }
-
-
-
-/*
-    Questions:
-    1. Identify if a memory leak occurs.
-        The moment ptr b is assigned to ptr b, the object Huzaifa is lost. (The memory leak)
-
-    2. Which object becomes unreachable?
-        The object a named Huzaifa here, becomes unreachable. 
-    3. Which destructor executes?
-        The destructor for the b object named "Faizan " is executed.
-
-    4. Fix the code and explain your correction.
-        Deleted 'a' before assigning b pointer to "a".
-
-
-*/

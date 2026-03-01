@@ -34,7 +34,7 @@ class Book{
         Book(int id, string title, string desc, float price) 
         : id(id), title(title), desc(desc), price(price)
         {
-            cout<< "Created a book with title: " << title << endl ;
+            cout<< "Created a book with title: " << title << " and id: " << id << endl ;
             bookCount++ ;
             
         }
@@ -61,7 +61,7 @@ class Book{
         Book(Book& book)
         : Book(bookCount, book.title, book.desc, book.price)
         {
-
+            cout<< "Copy constructor called " << book.title << endl ;
         }
 
         
@@ -89,38 +89,22 @@ int main(){
 
     Book b2 = Book("Programming Fundamentals", "Writeen by John Doe to help you get out of the Lab-Task-1");
 
-    Book b3 = Book();       // Callign the default constructor.
+    Book b3 = Book();           // Unknown, since default constructor is called.
+    
+    cout<< endl ;
 
     Book b4(b2);        // Calling copy constructor
 
-    Book b5 = b1;
+    Book b5 = b1;       // Calls the copy constructor.
+    
+    cout<< endl ;
 
     cout<< "Address of b2 is: " << &b2 << " and the address of b4 is "<< &b4 << endl ;
 
-    cout<< "Adress of b1 is: " << &b1 << " and the address of b5 is: " << &b5 << endl;
+    cout<< "Adresss of b1 is: " << &b1 << " and the address of b5 is: " << &b5 << endl;
+    
+    cout<< endl ;
 
 
     return 0;
 }
-
-
-
-// Questions
-
-/*
-    1. How many times the copy constructor execute?
-        It did execute two times, once for Book b4(b2) and Once for Book b5 = b1
-
-
-    2. When does each destructor run ? 
-
-        Each destructor executed when the main function did end, in the reverse order the objects were declared.. 
-        Objects were destroyed in this sequence. b5 
-
-    3. Explain the object memory address and what they tell you?
-
-        Object memory address is the Physical memory address where the object is located in the memory...
-
-
-
-*/

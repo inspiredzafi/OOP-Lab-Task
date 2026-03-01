@@ -40,33 +40,3 @@ int main(){
 
     return 0;
 }
-
-
-// Questions
-/* 
-    1. Write the exact constructor and destructor execution order.
-        a) The constructor is called for Tracer t1 on line 28..
-        b) The constructor is called for Tracer t2 on line 33 in a specified block from line 32 - 35,
-        c) The destructor is called for Tracer t2 as t2 gets out of scope of the block, as the control flow encounter the closing brace "}" at line 35, it encounters the Destructor for t2.
-
-        d) The function test is called at line 40, and the constructor is called for Tracer husnain on the line 23..
-        e) The destructor for the Tracer Husnain is called as the function test() encounters its closing brace "}" on the line 24.
-        f) Destructor for the Object Guest is called since it was declared in the main function and its destroyed when the main function terminates.
-        
-        
-*/
-
-
-/*
-    2. Explain why destructors follow LIFO (Last In, First Out) order.
-        All the variables are declared in stack and stack follows the last in first out order (the LIFO) standard, and that's the reason the destructor for the Objects declared at the very end 
-        are popped first and destructor is called for them. 
-
-
-*/
-
-
-/*
-    3. Identify precisely when each object is destroyed.
-        Each object is destroyed when encounters the closing brace of the block it was declared in. 
-*/
