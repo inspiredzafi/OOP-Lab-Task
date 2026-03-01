@@ -6,6 +6,7 @@
     • Implement class Car that has an Engine member variable.
     • Create a Car object in main() and observe the construction/destruction order.
     Questions:
+    
     1. Which constructor runs first — Engine or Car?
     2. Which destructor runs first — Engine or Car?
     3. Explain the order using object lifecycle logic.
@@ -56,8 +57,8 @@ int main()
 /* 
      Questions:
     1. Which constructor runs first — Engine or Car?
-        The Engine constructor runs first, when the instance of Car is made, The compiler creates the objects or data members declared in the object( car) and then the constructor for Car is called which is used to assign values to these members (Engine here).
-
+        The Engine constructor runs first, when the instance of Car is made, The compiler creates the objects or data members declared in the object( car) first and then the constructor for Car is called which is used to assign values to these declared members (Engine here).
+        
 
     2. Which destructor runs first — Engine or Car?
 
@@ -65,9 +66,17 @@ int main()
 
     3. Explain the order using object lifecycle logic.
 
+        a) The object car is created.
+        b) Members of Car are declared, here engine is only member, and is called for its default constructor when declared. 
+        c) Constructor for the Car is called. 
+        d) The destructor for Car is called, as the control flow encounter the closing brace of main function, since it's the only object declared in the scope  of main function.
+        e) When the destructor is called, it destroyes the data members declared in the object. Tries to clean engine data member.
+        f) Destructor for the Engine is called.
+        g) Program ends
+
     
     4. Draw a memory layout diagram showing how Car and Engine coexist.
-
+        Checkout the Attached image, memoryLayout.png.
 
 
 */
