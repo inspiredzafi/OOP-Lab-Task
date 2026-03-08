@@ -9,9 +9,6 @@
 using namespace std;
 
 
-
-
-
 class BankAccount{
     private:
         string accountHolderName ;
@@ -29,8 +26,8 @@ class BankAccount{
 
         BankAccount(){
             setName("Guest");
-            // setAccountNumber();
-            // setBalance(0);
+            setAccountNumber(99999);        // Reserved for guests..
+            setBalance(0);
         }
 
         BankAccount(const string& name, int accountNumber , double balance ){
@@ -101,7 +98,16 @@ int main(){
     BankAccount a1("huzaifa", 22222, 34.23);
     a1.displayInfo() ;
 
-    BankAccount a2 ("huzaifa", 22222, 34.33);
+    // BankAccount a2 ("huzaifa", 22222, 34.33);
+
+
+    BankAccount a3;
+    BankAccount a4;
+
+    a3.getBalance();
+    a3.setBalance(5400);
+
+    
     return 0;
 }
 
@@ -135,27 +141,37 @@ void BankAccount :: setAccountNumber(const int& accNum){
         return ;
     }
 
-        if(!(accNum >= 10000 && accNum <= 99999)){
-            cout<< "Error: Invalid Account Number: Account Number must be 5 digits" << endl ;
-            exit(400);
-            return; // I know k ignore hojaye gi. But let it be here.
-        }
+    if(!(accNum >= 10000 && accNum <= 99999)){
+
+        cout<< "Error: Invalid Account Number: Account Number must be 5 digits" << endl ;
+        exit(400);
+        return; // I know k ignore hojaye gi. But let it be here.
+    }
     
+    if(accNum != 99999){
+
         AccountNumbers.push_back(accNum) ;
-        accountNumber = accNum ;
+    }
+
+    accountNumber = accNum ;
     
 }
     
     
 void BankAccount :: setBalance(const double& bal){
 
-    if(bal <= 0){
+    if(bal < 0){
 
         cout<< "Cannot set the Balance to negative Integer." << endl ;
 
         cout<< "Your Balance is 0 'cause you tried to hack the system. And all your accounts have been banned. " << endl ;
         balance = 0 ;       // Choice
         // exit(400);      // ab ye apki choice hy, program terminate krna tay kr dyo, nitay bal "0" ojaye ga.
+    }
+
+    if(accountNumber == 99999 && bal != 0){
+        cout<< "Error: Transactions aren't allowed to guests. Please set a valid account number first and try again.!" << endl ;
+        return ;
     }
 
     balance = bal ;
